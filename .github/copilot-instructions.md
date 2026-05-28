@@ -452,7 +452,23 @@ PowerShell script that bridges Windows command line to Ansible running in WSL.
    - New port ranges? Edit `inventory/group_vars/nds_servers/vars.yml`
    - New secrets? Add to `vault.yml`
 
-4. **Deploy**:
+4. **Add server IP to WSL SSH config** (`~/.ssh/config` inside WSL Ubuntu):
+   ```bash
+   # Append the new IP to the existing Host line so Ansible can authenticate
+   # The config lives in WSL, not Windows - edit it via:
+   wsl -d Ubuntu -- bash -c "sed -i 's/Host <existing IPs>/Host <existing IPs> <new IP>/' ~/.ssh/config"
+   # Verify:
+   wsl -d Ubuntu -- cat ~/.ssh/config
+   ```
+   Without this step, Ansible will fail with `Permission denied (publickey,password)` on the new host
+   even though Windows SSH connects fine, because WSL uses its own `~/.ssh/config` with `hetzner_rsa`.
+
+5. **Run VoodooFan's install script** on the new server before deploying (creates `steam` user, installs SteamCMD):
+   ```powershell
+   ssh root@<new-ip> "curl -s https://raw.githubusercontent.com/VoodooFan/nebulous/main/install-steam-and-nds.bash | bash"
+   ```
+
+6. **Deploy**:
    ```powershell
    .\gameserver.ps1 deploy-all --limit nds4
    ```
