@@ -1,0 +1,12 @@
+---
+# Handlers - Triggered tasks (monitoring)
+
+- name: restart prometheus
+  docker_container:
+    name: prometheus
+    restart: yes
+
+- name: restart promtail
+  docker_container:
+    name: promtail
+    restart: yes

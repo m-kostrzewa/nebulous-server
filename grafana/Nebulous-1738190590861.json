@@ -375,7 +375,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "grafanacloud-prom"
+        "uid": "${datasource}"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -905,7 +905,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "grafanacloud-prom"
+        "uid": "${datasource}"
       },
       "description": "Basic CPU info",
       "fieldConfig": {
@@ -915,7 +915,6 @@
           },
           "custom": {
             "axisBorderShow": false,
-            "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
@@ -931,7 +930,6 @@
             },
             "insertNulls": false,
             "lineInterpolation": "smooth",
-            "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -1189,7 +1187,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "grafanacloud-prom"
+        "uid": "${datasource}"
       },
       "description": "Disk space used of all filesystems mounted",
       "fieldConfig": {
@@ -1295,7 +1293,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "grafanacloud-prom"
+        "uid": "${datasource}"
       },
       "description": "Basic network info per interface",
       "fieldConfig": {
@@ -1775,6 +1773,20 @@
   "tags": [],
   "templating": {
     "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "grafanacloud-kostrzewa-prom",
+          "value": "grafanacloud-kostrzewa-prom"
+        },
+        "label": "Datasource",
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "type": "datasource"
+      },
       {
         "current": {
           "selected": true,

@@ -6,6 +6,7 @@
   
   roles:
     - abiotic_factor
+    - monitoring
 
   post_tasks:
     - name: Display Abiotic Factor deployment summary

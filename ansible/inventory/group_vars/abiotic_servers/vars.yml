@@ -7,6 +7,7 @@ abiotic_base_path: /srv/steam
 abiotic_install_path: /srv/steam/abiotic-factor
 abiotic_config_path: /srv/steam/abiotic-factor/AbioticFactor/Saved/Config/LinuxServer
 abiotic_saves_path: /srv/steam/abiotic-factor/AbioticFactor/Saved/SaveGames
+abiotic_log_path: /srv/steam/abiotic-factor/AbioticFactor/Saved/Logs/AbioticFactor.log
 
 # Steam App ID for Abiotic Factor Dedicated Server
 abiotic_steam_app_id: 2857200

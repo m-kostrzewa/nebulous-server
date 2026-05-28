@@ -12,13 +12,3 @@
 - name: systemctl daemon-reload
   systemd:
     daemon_reload: yes
-
-- name: restart prometheus
-  docker_container:
-    name: prometheus
-    restart: yes
-
-- name: restart promtail
-  docker_container:
-    name: promtail
-    restart: yes

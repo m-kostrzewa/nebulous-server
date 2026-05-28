@@ -40,3 +40,14 @@ scrape_configs:
           job: adminLog
           origin: {{ server_id }}
           __path__: {{ admin_log_path }}
+
+{% if 'abiotic_servers' in group_names %}
+  - job_name: abiotic
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: abiotic
+          origin: {{ server_id }}
+          __path__: {{ abiotic_log_path }}
+{% endif %}
